@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Select a Product Category</title>
+    <style>
+        /* Your CSS styling goes here */
+        h1 {
+            color: red;
+        }
+        /* Add other CSS styles as needed */
+    </style>
+</head>
+<body>
+    <h1>Select a Product Category</h1>
+    <p>Hi there! :wave: Please choose a product category from the list below.</p>
+
+    <label for="category">Select a product category:</label>
+    <select id="category">
+        <option value="Sports & Outdoors">Sports & Outdoors</option>
+        <option value="Toys & Games">Toys & Games</option>
+        <option value="Clothing, Shoes & Jewelry">Clothing, Shoes & Jewelry</option>
+        <!-- Add other categories here based on your data -->
+    </select>
+
+    <script>
+        // JavaScript code to handle the selected category
+        const categoryDropdown = document.getElementById("category");
+
+        // Function to save the selected category to localStorage
+        function saveSelectedCategory() {
+            const selectedCategory = categoryDropdown.value;
+            localStorage.setItem("selectedCategory", selectedCategory);
+            alert(`You have selected: ${selectedCategory}`);
+        }
+
+        // Load the previously selected category from localStorage (if available)
+        const selectedCategory = localStorage.getItem("selectedCategory");
+        if (selectedCategory) {
+            categoryDropdown.value = selectedCategory;
+        }
+
+        // Event listener to save the selected category when the user changes the selection
+        categoryDropdown.addEventListener("change", saveSelectedCategory);
+    </script>
+</body>
+</html>
